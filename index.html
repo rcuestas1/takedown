@@ -579,128 +579,204 @@
           <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Planos para todos os tamanhos</h2>
           <p class="mt-4 text-lg text-gray-400">Escolha o plano ideal para a sua necessidade de proteção digital.</p>
         </div>
-        <div class="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
-          <!-- Gratuito -->
-          <div class="relative flex flex-col rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700">
-            <div class="mb-5">
-              <h3 class="text-lg font-semibold text-white">Gratuito</h3>
-              <p class="mt-1 min-h-[2.5rem] text-sm text-gray-400">Para começar a proteger seu conteúdo</p>
+
+        <!-- Scroll container -->
+        <div class="relative mt-16" id="pricing-wrapper">
+          <!-- Left arrow -->
+          <button id="scroll-left" onclick="document.getElementById('pricing-scroll').scrollBy({left:-320,behavior:'smooth'})" class="absolute -left-2 top-1/2 z-10 -translate-y-1/2 rounded-full border border-gray-700 bg-gray-900/90 p-2 text-gray-400 shadow-lg backdrop-blur transition-colors hover:border-gray-600 hover:text-white sm:-left-4 hidden" aria-label="Rolar para esquerda">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
+          </button>
+          <!-- Right arrow -->
+          <button id="scroll-right" onclick="document.getElementById('pricing-scroll').scrollBy({left:320,behavior:'smooth'})" class="absolute -right-2 top-1/2 z-10 -translate-y-1/2 rounded-full border border-gray-700 bg-gray-900/90 p-2 text-gray-400 shadow-lg backdrop-blur transition-colors hover:border-gray-600 hover:text-white sm:-right-4 hidden" aria-label="Rolar para direita">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+          </button>
+          <!-- Gradient fade edges -->
+          <div id="fade-left" class="pointer-events-none absolute left-0 top-0 z-[5] h-full w-12 bg-gradient-to-r from-gray-950 to-transparent hidden"></div>
+          <div id="fade-right" class="pointer-events-none absolute right-0 top-0 z-[5] h-full w-12 bg-gradient-to-l from-gray-950 to-transparent hidden"></div>
+
+          <!-- Scrollable plan cards -->
+          <div id="pricing-scroll" class="flex gap-6 overflow-x-auto pb-4 pt-4" style="cursor:grab;scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:auto;">
+            <!-- Gratuito -->
+            <div class="relative flex w-[300px] flex-shrink-0 flex-col rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700">
+              <div class="mb-5">
+                <h3 class="text-lg font-semibold text-white">Gratuito</h3>
+                <p class="mt-1 min-h-[2.5rem] text-sm text-gray-400">Para começar a proteger seu conteúdo</p>
+              </div>
+              <div class="mb-2">
+                <span class="text-4xl font-bold text-white">R$ 0</span>
+                <span class="text-gray-400">/mês</span>
+              </div>
+              <a href="/register" class="mb-6 block w-full rounded-lg border border-gray-700 px-4 py-2.5 text-center text-sm font-semibold text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800 hover:text-white">Começar grátis</a>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>3 buscas por imagem/mês</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Busca nos principais buscadores</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Comparação inteligente de imagens</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Verificação de vazamento de dados</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Relatório de atividades</li>
+              </ul>
             </div>
-            <div class="mb-2">
-              <span class="text-4xl font-bold text-white">R$ 0</span>
-              <span class="text-gray-400">/mês</span>
+            <!-- Básico -->
+            <div class="relative flex w-[300px] flex-shrink-0 flex-col rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700">
+              <div class="mb-5">
+                <h3 class="text-lg font-semibold text-white">Básico</h3>
+                <p class="mt-1 min-h-[2.5rem] text-sm text-gray-400">Para criadores que precisam de proteção ativa</p>
+              </div>
+              <div class="mb-2">
+                <span class="text-4xl font-bold text-white">R$ 29</span>
+                <span class="text-gray-400">/mês</span>
+              </div>
+              <a href="/register" class="mb-6 block w-full rounded-lg border border-gray-700 px-4 py-2.5 text-center text-sm font-semibold text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800 hover:text-white">Assinar Básico</a>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>30 buscas por mês</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Busca completa por imagem</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Rastreamento automático de sites</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento por nome e marca</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento de menções na web</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Alertas de pirataria por e-mail</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Histórico completo de buscas</li>
+              </ul>
             </div>
-            <a href="/register" class="mb-6 mt-4 block w-full rounded-lg border border-gray-700 px-4 py-2.5 text-center text-sm font-semibold text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800 hover:text-white">Começar grátis</a>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>3 buscas por imagem/mês</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Busca nos principais buscadores</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Comparação inteligente de imagens</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Verificação de vazamento de dados</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Relatório de atividades</li>
-            </ul>
+            <!-- Pro -->
+            <div class="relative flex w-[300px] flex-shrink-0 flex-col rounded-xl border border-blue-500 bg-gray-800 p-6 shadow-lg shadow-blue-600/10 transition-all">
+              <div class="absolute -top-3 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap">
+                <span class="rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white shadow">Mais popular</span>
+              </div>
+              <div class="mb-5">
+                <h3 class="text-lg font-semibold text-white">Pro</h3>
+                <p class="mt-1 min-h-[2.5rem] text-sm text-gray-400">Para criadores profissionais</p>
+              </div>
+              <div class="mb-2">
+                <span class="text-4xl font-bold text-white">R$ 79</span>
+                <span class="text-gray-400">/mês</span>
+              </div>
+              <a href="/register" class="mb-6 block w-full rounded-lg bg-blue-600 px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-blue-500">Testar grátis por 7 dias</a>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Buscas ilimitadas</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Reconhecimento facial com IA</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Busca inteligente por semelhança</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Proteção de vídeo</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Proteção de marca d'água</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento de redes sociais</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Descoberta de perfis falsos</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento da dark web</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Descoberta automática de fontes piratas</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Remoção automática de conteúdo</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Alertas em tempo real</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>7 dias grátis para testar</li>
+              </ul>
+            </div>
+            <!-- Premium -->
+            <div class="relative flex w-[300px] flex-shrink-0 flex-col rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700">
+              <div class="mb-5">
+                <h3 class="text-lg font-semibold text-white">Premium</h3>
+                <p class="mt-1 min-h-[2.5rem] text-sm text-gray-400">Proteção máxima com prioridade total</p>
+              </div>
+              <div class="mb-2">
+                <span class="text-4xl font-bold text-white">R$ 199</span>
+                <span class="text-gray-400">/mês</span>
+              </div>
+              <a href="/register" class="mb-6 block w-full rounded-lg border border-gray-700 px-4 py-2.5 text-center text-sm font-semibold text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800 hover:text-white">Assinar Premium</a>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Tudo do Pro</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Prioridade no processamento</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Remoção com acompanhamento avançado</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Suporte prioritário</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Relatórios avançados</li>
+              </ul>
+            </div>
+            <!-- Fundador (último) -->
+            <div class="relative flex w-[300px] flex-shrink-0 flex-col rounded-xl border border-amber-500 bg-amber-950/20 p-6 shadow-lg shadow-amber-500/10 transition-all">
+              <div class="absolute -top-3 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap">
+                <span class="rounded-full bg-amber-600 px-3 py-1 text-xs font-semibold text-white shadow">Exclusivo</span>
+              </div>
+              <div class="mb-5">
+                <h3 class="text-lg font-semibold text-amber-400">Fundador</h3>
+                <p class="mt-1 min-h-[2.5rem] text-sm text-gray-400">Preço congelado para sempre para os primeiros apoiadores</p>
+              </div>
+              <div class="mb-2">
+                <span class="text-4xl font-bold text-white">R$ 39</span>
+                <span class="text-gray-400">/mês</span>
+              </div>
+              <p class="mb-4 text-xs font-medium text-amber-500">Preço congelado para sempre</p>
+              <p class="mb-4 text-xs font-semibold text-amber-400/80">Apenas 50 vagas</p>
+              <a href="/register" class="mb-6 block w-full rounded-lg bg-amber-600 px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-amber-700">Garantir vaga de Fundador</a>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Preço congelado para sempre</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>100 buscas por mês</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Todos os motores de detecção</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento contínuo (12h)</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Alertas em tempo real</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>50 takedowns por mês</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Proteção de vídeo e watermark</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento de redes sociais</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Dark web e descoberta de fontes</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Badge exclusiva de Fundador</li>
+                <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Acesso antecipado a novos recursos</li>
+              </ul>
+            </div>
           </div>
-          <!-- Fundador -->
-          <div class="relative flex flex-col rounded-xl border border-amber-500 bg-amber-950/20 p-6 shadow-lg shadow-amber-500/10 transition-all">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span class="rounded-full bg-amber-600 px-3 py-1 text-xs font-semibold text-white">Exclusivo</span>
-            </div>
-            <div class="mb-5">
-              <h3 class="text-lg font-semibold text-amber-400">Fundador</h3>
-              <p class="mt-1 min-h-[2.5rem] text-sm text-gray-400">Preço congelado para sempre para os primeiros apoiadores</p>
-            </div>
-            <div class="mb-2">
-              <span class="text-4xl font-bold text-white">R$ 39</span>
-              <span class="text-gray-400">/mês</span>
-            </div>
-            <p class="mb-4 text-xs font-medium text-amber-500">Preço congelado para sempre</p>
-            <p class="mb-4 text-xs font-semibold text-amber-400/80">Apenas 50 vagas</p>
-            <a href="/register" class="mb-6 block w-full rounded-lg bg-amber-600 px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-amber-700">Garantir vaga de Fundador</a>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Preço congelado para sempre</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>100 buscas por mês</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Todos os motores de detecção</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento contínuo (12h)</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Alertas em tempo real</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>50 takedowns por mês</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Proteção de vídeo e watermark</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento de redes sociais</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Dark web e descoberta de fontes</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Badge exclusiva de Fundador</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Acesso antecipado a novos recursos</li>
-            </ul>
-          </div>
-          <!-- Básico -->
-          <div class="relative flex flex-col rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700">
-            <div class="mb-5">
-              <h3 class="text-lg font-semibold text-white">Básico</h3>
-              <p class="mt-1 min-h-[2.5rem] text-sm text-gray-400">Para criadores que precisam de proteção ativa</p>
-            </div>
-            <div class="mb-2">
-              <span class="text-4xl font-bold text-white">R$ 29</span>
-              <span class="text-gray-400">/mês</span>
-            </div>
-            <a href="/register" class="mb-6 mt-4 block w-full rounded-lg border border-gray-700 px-4 py-2.5 text-center text-sm font-semibold text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800 hover:text-white">Assinar Básico</a>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>30 buscas por mês</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Busca completa por imagem</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Rastreamento automático de sites</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento por nome e marca</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento de menções na web</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Alertas de pirataria por e-mail</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Histórico completo de buscas</li>
-            </ul>
-          </div>
-          <!-- Pro -->
-          <div class="relative flex flex-col rounded-xl border border-blue-500 bg-gray-800 p-6 shadow-lg shadow-blue-600/10 transition-all">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span class="rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">Mais popular</span>
-            </div>
-            <div class="mb-5">
-              <h3 class="text-lg font-semibold text-white">Pro</h3>
-              <p class="mt-1 min-h-[2.5rem] text-sm text-gray-400">Para criadores profissionais</p>
-            </div>
-            <div class="mb-2">
-              <span class="text-4xl font-bold text-white">R$ 79</span>
-              <span class="text-gray-400">/mês</span>
-            </div>
-            <a href="/register" class="mb-6 mt-4 block w-full rounded-lg bg-blue-600 px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-blue-500">Testar grátis por 7 dias</a>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Buscas ilimitadas</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Reconhecimento facial com IA</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Busca inteligente por semelhança</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Proteção de vídeo</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Proteção de marca d'água</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento de redes sociais</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Descoberta de perfis falsos</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento da dark web</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Descoberta automática de fontes piratas</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Remoção automática de conteúdo</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Alertas em tempo real</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>7 dias grátis para testar</li>
-            </ul>
-          </div>
-          <!-- Premium -->
-          <div class="relative flex flex-col rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700">
-            <div class="mb-5">
-              <h3 class="text-lg font-semibold text-white">Premium</h3>
-              <p class="mt-1 min-h-[2.5rem] text-sm text-gray-400">Proteção máxima com prioridade total</p>
-            </div>
-            <div class="mb-2">
-              <span class="text-4xl font-bold text-white">R$ 199</span>
-              <span class="text-gray-400">/mês</span>
-            </div>
-            <a href="/register" class="mb-6 mt-4 block w-full rounded-lg border border-gray-700 px-4 py-2.5 text-center text-sm font-semibold text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800 hover:text-white">Assinar Premium</a>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Tudo do Pro</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Prioridade no processamento</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Remoção com acompanhamento avançado</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Suporte prioritário</li>
-              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Relatórios avançados</li>
-            </ul>
+
+          <!-- Scroll indicator dots -->
+          <div class="mt-6 flex justify-center gap-2">
+            <div class="h-1.5 w-3 rounded-full bg-gray-700"></div>
+            <div class="h-1.5 w-3 rounded-full bg-gray-700"></div>
+            <div class="h-1.5 w-6 rounded-full bg-blue-500"></div>
+            <div class="h-1.5 w-3 rounded-full bg-gray-700"></div>
+            <div class="h-1.5 w-6 rounded-full bg-amber-500"></div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Pricing scroll JS: arrows, fades, drag-to-scroll with momentum -->
+    <script>
+    (function(){
+      var el = document.getElementById('pricing-scroll');
+      var btnL = document.getElementById('scroll-left');
+      var btnR = document.getElementById('scroll-right');
+      var fadeL = document.getElementById('fade-left');
+      var fadeR = document.getElementById('fade-right');
+      function update(){
+        var sl = el.scrollLeft, sw = el.scrollWidth, cw = el.clientWidth;
+        var left = sl > 10, right = sl < sw - cw - 10;
+        btnL.classList.toggle('hidden', !left);
+        btnR.classList.toggle('hidden', !right);
+        fadeL.classList.toggle('hidden', !left);
+        fadeR.classList.toggle('hidden', !right);
+      }
+      el.addEventListener('scroll', update, {passive:true});
+      window.addEventListener('resize', update);
+      update();
+      // Drag to scroll with momentum
+      var dragging=false, startX=0, scrollL=0, vel=0, lx=0, lt=0, af=0;
+      el.addEventListener('mousedown', function(e){
+        cancelAnimationFrame(af);
+        dragging=true; startX=e.pageX; scrollL=el.scrollLeft;
+        lx=e.pageX; lt=Date.now(); vel=0;
+        el.style.cursor='grabbing';
+      });
+      el.addEventListener('mousemove', function(e){
+        if(!dragging) return;
+        e.preventDefault();
+        var now=Date.now(), dt=now-lt, dx=e.pageX-lx;
+        if(dt>0) vel=-dx/dt*16;
+        lx=e.pageX; lt=now;
+        el.scrollLeft = scrollL - (e.pageX - startX);
+      });
+      function stop(){
+        if(!dragging) return;
+        dragging=false; el.style.cursor='grab';
+        if(Math.abs(vel)>1){ af=requestAnimationFrame(momentum); }
+      }
+      function momentum(){
+        if(Math.abs(vel)<0.5) return;
+        vel*=0.95; el.scrollLeft+=vel;
+        af=requestAnimationFrame(momentum);
+      }
+      el.addEventListener('mouseup', stop);
+      el.addEventListener('mouseleave', stop);
+    })();
+    </script>
 
     <!-- Final CTA Section -->
     <section class="border-t border-gray-800">
