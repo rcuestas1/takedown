@@ -1,636 +1,733 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kubex — Proteja seu conteúdo digital</title>
-  <meta name="description" content="Plataforma brasileira de proteção digital com inteligência artificial. Detecte pirataria em redes sociais, sites, dark web — e remova com um clique." />
-  <meta name="theme-color" content="#030712" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232563eb'/><text x='50%25' y='55%25' dominant-baseline='central' text-anchor='middle' fill='white' font-size='18' font-weight='bold' font-family='system-ui'>K</text></svg>" />
+  <title>Kubex - Proteção Digital e Anti-Pirataria</title>
+  <meta name="description" content="Proteja seu conteúdo digital com inteligência artificial. Busca reversa de imagens, reconhecimento facial, monitoramento contínuo e takedown automatizado. A plataforma brasileira de proteção digital mais avançada." />
+  <meta name="keywords" content="proteção digital, anti-pirataria, takedown, busca reversa de imagens, reconhecimento facial, monitoramento, DMCA, direitos autorais, proteção de conteúdo" />
+  <meta property="og:title" content="Kubex - Proteção Digital e Anti-Pirataria" />
+  <meta property="og:description" content="Proteja seu conteúdo digital com inteligência artificial. A plataforma brasileira de proteção digital mais avançada." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Kubex" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            gray: {
-              950: '#030712',
-              900: '#111827',
-              800: '#1f2937',
-              700: '#374151',
-              600: '#4b5563',
-              500: '#6b7280',
-              400: '#9ca3af',
-              300: '#d1d5db',
-              200: '#e5e7eb',
-            },
-            blue: {
-              400: '#60a5fa',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-            },
-          },
-        },
-      },
-    };
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    body { background-color: #030712; }
-    /* Smooth anchor scrolling */
-    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background-color: #030712; color: #fff; }
   </style>
 </head>
-<body class="min-h-screen bg-gray-950 text-white antialiased">
+<body class="flex min-h-screen flex-col">
 
   <!-- Header -->
-  <header class="sticky top-0 z-50 border-b border-gray-800 bg-gray-950/80 backdrop-blur-md">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-      <!-- Logo -->
-      <a href="#" class="flex items-center gap-2">
-        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600">
-          <span class="text-sm font-bold text-white">K</span>
-        </div>
-        <span class="text-xl font-bold text-white">Kubex</span>
-      </a>
-
-      <!-- Desktop Navigation -->
-      <div class="hidden items-center gap-4 md:flex">
-        <a href="#funcionalidades" class="rounded-lg px-4 py-2 text-sm font-medium text-gray-300 transition-colors hover:bg-gray-800 hover:text-white">Funcionalidades</a>
-        <a href="#plataformas" class="rounded-lg px-4 py-2 text-sm font-medium text-gray-300 transition-colors hover:bg-gray-800 hover:text-white">Plataformas</a>
-        <a href="#planos" class="rounded-lg px-4 py-2 text-sm font-medium text-gray-300 transition-colors hover:bg-gray-800 hover:text-white">Planos</a>
-        <a href="#planos" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-500">Registrar</a>
-      </div>
-
-      <!-- Mobile Menu Button -->
-      <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center rounded-lg p-2 text-gray-400 hover:bg-gray-800 hover:text-white md:hidden" aria-label="Abrir menu">
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-      </button>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden border-t border-gray-800 px-4 py-4 md:hidden">
-      <div class="flex flex-col gap-2">
-        <a href="#funcionalidades" class="rounded-lg px-4 py-2 text-sm font-medium text-gray-300 transition-colors hover:bg-gray-800 hover:text-white">Funcionalidades</a>
-        <a href="#plataformas" class="rounded-lg px-4 py-2 text-sm font-medium text-gray-300 transition-colors hover:bg-gray-800 hover:text-white">Plataformas</a>
-        <a href="#planos" class="rounded-lg px-4 py-2 text-sm font-medium text-gray-300 transition-colors hover:bg-gray-800 hover:text-white">Planos</a>
-        <a href="#planos" class="rounded-lg bg-blue-600 px-4 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-blue-500">Registrar</a>
+  <header class="border-b border-gray-800 bg-gray-950/80 backdrop-blur-sm sticky top-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="/" class="text-xl font-bold text-white">Kubex</a>
+        <nav class="hidden sm:flex items-center gap-6">
+          <a href="#funcionalidades" class="text-sm text-gray-400 hover:text-white transition-colors">Funcionalidades</a>
+          <a href="#planos" class="text-sm text-gray-400 hover:text-white transition-colors">Planos</a>
+          <a href="/register" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500 transition-colors">Criar conta</a>
+        </nav>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10">
-      <div class="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/10 blur-3xl"></div>
-    </div>
+  <main class="flex-1">
 
-    <div class="mx-auto max-w-7xl px-4 pb-20 pt-24 sm:px-6 sm:pb-28 sm:pt-32 lg:px-8">
-      <div class="mx-auto max-w-3xl text-center">
-        <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-          Proteja seu conteúdo
-          <span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">digital</span>
-        </h1>
-        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-400 sm:text-xl">
-          Plataforma brasileira de proteção digital com inteligência artificial.
-          Detecte pirataria em redes sociais, sites, dark web — e remova com um clique.
-        </p>
-        <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <a href="#planos" class="w-full rounded-lg bg-blue-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-500 hover:shadow-blue-500/30 sm:w-auto text-center">
-            Começar gratuitamente
-          </a>
-          <a href="#funcionalidades" class="w-full rounded-lg border border-gray-700 bg-gray-800/50 px-8 py-3.5 text-base font-semibold text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800 hover:text-white sm:w-auto text-center">
-            Ver funcionalidades
-          </a>
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/10 blur-3xl"></div>
+      </div>
+      <div class="mx-auto max-w-7xl px-4 pb-20 pt-24 sm:px-6 sm:pb-28 sm:pt-32 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center">
+          <h1 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+            Proteja seu conteúdo contra pirataria na internet
+          </h1>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-400 sm:text-xl">
+            Monitoramos a internet, redes sociais e dark web para encontrar e remover cópias do seu conteúdo automaticamente
+          </p>
+          <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <a href="/register" class="w-full rounded-lg bg-blue-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-500 hover:shadow-blue-500/30 sm:w-auto text-center">
+              Começar gratuitamente
+            </a>
+            <a href="#funcionalidades" class="w-full rounded-lg border border-gray-700 bg-gray-800/50 px-8 py-3.5 text-base font-semibold text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800 hover:text-white sm:w-auto text-center">
+              Ver funcionalidades
+            </a>
+          </div>
+        </div>
+        <!-- Stats bar -->
+        <div class="mx-auto mt-16 grid max-w-3xl grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-8">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-blue-400">10+</div>
+            <div class="mt-1 text-sm text-gray-400">Tipos de detecção</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-blue-400">13+</div>
+            <div class="mt-1 text-sm text-gray-400">Plataformas monitoradas</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-blue-400">24/7</div>
+            <div class="mt-1 text-sm text-gray-400">Monitoramento contínuo</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-blue-400">LGPD</div>
+            <div class="mt-1 text-sm text-gray-400">Proteção segura de dados</div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Stats bar -->
-      <div class="mx-auto mt-16 grid max-w-3xl grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-8">
-        <div class="text-center">
-          <div class="text-3xl font-bold text-blue-400">10+</div>
-          <div class="mt-1 text-sm text-gray-400">Tipos de detecção</div>
+    <!-- Product Preview Section -->
+    <section class="border-t border-gray-800 bg-gradient-to-b from-gray-950 to-gray-900/80 py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Veja o que a Kubex encontra para você</h2>
+          <p class="mt-3 text-base text-gray-400">Painel completo com resultados de busca, alertas e remoções em tempo real.</p>
         </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-blue-400">10+</div>
-          <div class="mt-1 text-sm text-gray-400">Plataformas monitoradas</div>
+        <!-- Dashboard mockup -->
+        <div class="mx-auto mt-10 max-w-4xl overflow-hidden rounded-xl border border-gray-700/50 bg-gray-900 shadow-2xl shadow-blue-900/10">
+          <div class="flex items-center gap-2 border-b border-gray-800 bg-gray-950 px-4 py-3">
+            <div class="h-3 w-3 rounded-full bg-red-500/60"></div>
+            <div class="h-3 w-3 rounded-full bg-yellow-500/60"></div>
+            <div class="h-3 w-3 rounded-full bg-green-500/60"></div>
+            <div class="ml-4 flex-1 rounded-md bg-gray-800 px-3 py-1 text-center text-xs text-gray-500">app.kubex.com.br/dashboard</div>
+          </div>
+          <div class="p-6">
+            <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+              <div class="rounded-lg border border-gray-800 bg-gray-800/50 p-4">
+                <div class="text-xs text-gray-500">Conteúdos protegidos</div>
+                <div class="mt-1 text-2xl font-bold text-white">247</div>
+              </div>
+              <div class="rounded-lg border border-gray-800 bg-gray-800/50 p-4">
+                <div class="text-xs text-gray-500">Cópias encontradas</div>
+                <div class="mt-1 text-2xl font-bold text-red-400">89</div>
+              </div>
+              <div class="rounded-lg border border-gray-800 bg-gray-800/50 p-4">
+                <div class="text-xs text-gray-500">Remoções enviadas</div>
+                <div class="mt-1 text-2xl font-bold text-amber-400">64</div>
+              </div>
+              <div class="rounded-lg border border-gray-800 bg-gray-800/50 p-4">
+                <div class="text-xs text-gray-500">Removidas com sucesso</div>
+                <div class="mt-1 text-2xl font-bold text-green-400">51</div>
+              </div>
+            </div>
+            <div class="mt-6 rounded-lg border border-gray-800 bg-gray-800/30">
+              <div class="border-b border-gray-800 px-4 py-3">
+                <span class="text-sm font-semibold text-white">Resultados recentes</span>
+              </div>
+              <div class="divide-y divide-gray-800/50">
+                <div class="flex items-center justify-between px-4 py-3">
+                  <div class="flex items-center gap-3">
+                    <span class="text-xs font-medium text-gray-400 w-20">Telegram</span>
+                    <span class="text-sm text-gray-300">Canal pirata detectado</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="h-1.5 w-1.5 rounded-full bg-amber-400"></div>
+                    <span class="text-xs font-medium text-amber-400">Remoção enviada</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between px-4 py-3">
+                  <div class="flex items-center gap-3">
+                    <span class="text-xs font-medium text-gray-400 w-20">Reddit</span>
+                    <span class="text-sm text-gray-300">Post com conteúdo não autorizado</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="h-1.5 w-1.5 rounded-full bg-green-400"></div>
+                    <span class="text-xs font-medium text-green-400">Removido</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between px-4 py-3">
+                  <div class="flex items-center gap-3">
+                    <span class="text-xs font-medium text-gray-400 w-20">Site pirata</span>
+                    <span class="text-sm text-gray-300">site-ilegal.com/uploads/...</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="h-1.5 w-1.5 rounded-full bg-amber-400"></div>
+                    <span class="text-xs font-medium text-amber-400">Takedown enviado</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between px-4 py-3">
+                  <div class="flex items-center gap-3">
+                    <span class="text-xs font-medium text-gray-400 w-20">Instagram</span>
+                    <span class="text-sm text-gray-300">Perfil falso identificado</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="h-1.5 w-1.5 rounded-full bg-blue-400"></div>
+                    <span class="text-xs font-medium text-blue-400">Reportado</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-blue-400">24/7</div>
-          <div class="mt-1 text-sm text-gray-400">Monitoramento contínuo</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-blue-400">LGPD</div>
-          <div class="mt-1 text-sm text-gray-400">Conformidade total</div>
+        <p class="mt-6 text-center text-sm text-gray-600">Interface ilustrativa do painel Kubex</p>
+      </div>
+    </section>
+
+    <!-- Urgency / Social Proof Section -->
+    <section class="border-t border-gray-800 bg-gradient-to-b from-gray-900/80 to-gray-950 py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Por que criamos a Kubex?</h2>
+          <p class="mt-6 text-lg leading-relaxed text-gray-400">
+            A pirataria de conteúdo cresce todos os dias. Criadores perdem controle sobre fotos, vídeos e conteúdo pago que são redistribuídos ilegalmente.
+          </p>
+          <div class="mt-8 rounded-xl border border-blue-800/30 bg-blue-950/30 px-6 py-5">
+            <p class="text-2xl font-bold text-blue-300">Mais de 80% do conteúdo vazado</p>
+            <p class="mt-1 text-base text-blue-400/70">continua circulando na internet por anos sem ser removido.</p>
+          </div>
+          <p class="mt-6 text-base text-gray-500">A Kubex foi criada para automatizar a busca e remoção desse conteúdo — para que criadores retomem o controle sobre o que é seu.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Features Section -->
-  <section id="funcionalidades" class="border-t border-gray-800 bg-gray-900/50 py-20 sm:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Tudo o que você precisa para se proteger
-        </h2>
-        <p class="mt-4 text-lg text-gray-400">
-          Busca por imagem, reconhecimento facial, monitoramento de redes sociais,
-          rastreamento de sites e dark web — tudo em uma única plataforma.
-        </p>
-      </div>
-
-      <div class="mx-auto mt-16 flex max-w-6xl flex-wrap justify-center gap-6">
-        <!-- Busca por Imagem com IA -->
-        <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-          <div class="mb-4 inline-flex rounded-lg bg-blue-600/10 p-3 text-blue-400">
-            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold text-white">Busca por Imagem com IA</h3>
-          <p class="mt-2 text-sm leading-relaxed text-gray-400">Envie uma foto e nossa IA encontra cópias em toda a internet — mesmo que tenham sido recortadas, editadas ou com filtros aplicados.</p>
+    <!-- Target Audience Section -->
+    <section class="border-t border-gray-800 py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Para quem é a Kubex?</h2>
+          <p class="mt-4 text-lg text-gray-400">Se você cria conteúdo e quer proteger o que é seu, a Kubex é para você.</p>
         </div>
-
-        <!-- Reconhecimento Facial -->
-        <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-          <div class="mb-4 inline-flex rounded-lg bg-blue-600/10 p-3 text-blue-400">
-            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-            </svg>
+        <div class="mx-auto mt-12 flex max-w-3xl flex-wrap justify-center gap-4">
+          <div class="flex items-center gap-3 rounded-xl border border-gray-800 bg-gray-800/30 px-5 py-4 transition-all hover:border-blue-600/30 hover:bg-gray-800/60">
+            <div class="flex-shrink-0 text-blue-400">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" /></svg>
+            </div>
+            <span class="text-sm font-medium text-white">Criadores de conteúdo</span>
           </div>
-          <h3 class="text-lg font-semibold text-white">Reconhecimento Facial</h3>
-          <p class="mt-2 text-sm leading-relaxed text-gray-400">Descubra se alguém está usando seu rosto sem permissão. Nossa IA identifica seu rosto em fotos e vídeos espalhados pela internet.</p>
-        </div>
-
-        <!-- Monitoramento de Redes Sociais -->
-        <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-          <div class="mb-4 inline-flex rounded-lg bg-blue-600/10 p-3 text-blue-400">
-            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
-            </svg>
+          <div class="flex items-center gap-3 rounded-xl border border-gray-800 bg-gray-800/30 px-5 py-4 transition-all hover:border-blue-600/30 hover:bg-gray-800/60">
+            <div class="flex-shrink-0 text-blue-400">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z" /></svg>
+            </div>
+            <span class="text-sm font-medium text-white">Fotógrafos e videomakers</span>
           </div>
-          <h3 class="text-lg font-semibold text-white">Monitoramento de Redes Sociais</h3>
-          <p class="mt-2 text-sm leading-relaxed text-gray-400">Monitoramos as principais redes sociais e apps de mensagens automaticamente. Encontramos canais piratas, perfis falsos e quem compartilha seu conteúdo sem autorização.</p>
-        </div>
-
-        <!-- Rastreamento de Sites -->
-        <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-          <div class="mb-4 inline-flex rounded-lg bg-blue-600/10 p-3 text-blue-400">
-            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
-            </svg>
+          <div class="flex items-center gap-3 rounded-xl border border-gray-800 bg-gray-800/30 px-5 py-4 transition-all hover:border-blue-600/30 hover:bg-gray-800/60">
+            <div class="flex-shrink-0 text-blue-400">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a23.838 23.838 0 0 0-1.012 5.434c3.542-1.272 7.292-1.99 11.244-1.99s7.702.718 11.244 1.99a23.843 23.843 0 0 0-1.012-5.434m-15.482 0A23.94 23.94 0 0 1 12 3.75a23.94 23.94 0 0 1 7.741 2.397m-15.482 3.997V3.75" /></svg>
+            </div>
+            <span class="text-sm font-medium text-white">Infoprodutores</span>
           </div>
-          <h3 class="text-lg font-semibold text-white">Rastreamento de Sites</h3>
-          <p class="mt-2 text-sm leading-relaxed text-gray-400">Nosso robô varre sites suspeitos automaticamente, busca pelo seu nome ou marca e descobre novos sites de pirataria antes que se espalhem.</p>
-        </div>
-
-        <!-- Proteção de Vídeo -->
-        <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-          <div class="mb-4 inline-flex rounded-lg bg-blue-600/10 p-3 text-blue-400">
-            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
-            </svg>
+          <div class="flex items-center gap-3 rounded-xl border border-gray-800 bg-gray-800/30 px-5 py-4 transition-all hover:border-blue-600/30 hover:bg-gray-800/60">
+            <div class="flex-shrink-0 text-blue-400">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" /></svg>
+            </div>
+            <span class="text-sm font-medium text-white">Modelos e creators adultos</span>
           </div>
-          <h3 class="text-lg font-semibold text-white">Proteção de Vídeo</h3>
-          <p class="mt-2 text-sm leading-relaxed text-gray-400">Detecta quando alguém republica seus vídeos ou usa trechos deles sem permissão — mesmo que editem, cortem ou adicionem efeitos.</p>
-        </div>
-
-        <!-- Proteção de Marca D'Água -->
-        <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-          <div class="mb-4 inline-flex rounded-lg bg-blue-600/10 p-3 text-blue-400">
-            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0 1 19.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 0 0 4.5 10.5a7.464 7.464 0 0 1-1.15 3.993m1.989 3.559A11.209 11.209 0 0 0 8.25 10.5a3.75 3.75 0 1 1 7.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 0 1-3.6 9.75m6.633-4.596a18.666 18.666 0 0 1-2.485 5.33" />
-            </svg>
+          <div class="flex items-center gap-3 rounded-xl border border-gray-800 bg-gray-800/30 px-5 py-4 transition-all hover:border-blue-600/30 hover:bg-gray-800/60">
+            <div class="flex-shrink-0 text-blue-400">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" /></svg>
+            </div>
+            <span class="text-sm font-medium text-white">Marcas e empresas</span>
           </div>
-          <h3 class="text-lg font-semibold text-white">Proteção de Marca D'Água</h3>
-          <p class="mt-2 text-sm leading-relaxed text-gray-400">Descubra se alguém removeu ou alterou sua marca d'água. Comparamos suas imagens originais com as cópias encontradas.</p>
-        </div>
-
-        <!-- Monitoramento Dark Web -->
-        <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-          <div class="mb-4 inline-flex rounded-lg bg-blue-600/10 p-3 text-blue-400">
-            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold text-white">Monitoramento Dark Web</h3>
-          <p class="mt-2 text-sm leading-relaxed text-gray-400">Investigamos a parte oculta da internet onde conteúdo pirata costuma circular. Detectamos seu material em fóruns e sites escondidos.</p>
-        </div>
-
-        <!-- Remoção Automática -->
-        <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-          <div class="mb-4 inline-flex rounded-lg bg-blue-600/10 p-3 text-blue-400">
-            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold text-white">Remoção Automática</h3>
-          <p class="mt-2 text-sm leading-relaxed text-gray-400">Encontrou pirataria? Com um clique, enviamos pedidos de remoção baseados na lei brasileira e internacional direto para as plataformas infratoras.</p>
-        </div>
-
-        <!-- Monitoramento de Menções -->
-        <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-          <div class="mb-4 inline-flex rounded-lg bg-blue-600/10 p-3 text-blue-400">
-            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold text-white">Monitoramento de Menções</h3>
-          <p class="mt-2 text-sm leading-relaxed text-gray-400">Saiba sempre que seu nome ou marca aparecer na internet. Monitoramos blogs, notícias e sites automaticamente para você.</p>
-        </div>
-
-        <!-- Alertas Instantâneos -->
-        <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-          <div class="mb-4 inline-flex rounded-lg bg-blue-600/10 p-3 text-blue-400">
-            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold text-white">Alertas Instantâneos</h3>
-          <p class="mt-2 text-sm leading-relaxed text-gray-400">Receba avisos no momento em que encontramos algo suspeito. Você decide o que fazer direto do seu painel, sem perder tempo.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Platforms Section -->
-  <section id="plataformas" class="border-t border-gray-800 py-20 sm:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Onde monitoramos
-        </h2>
-        <p class="mt-4 text-lg text-gray-400">
-          Cobertura completa nas plataformas onde pirataria acontece no Brasil e no mundo.
-        </p>
-      </div>
-
-      <div class="mx-auto mt-12 flex max-w-4xl flex-wrap justify-center gap-4 lg:gap-6">
-        <div class="flex w-[calc(50%-8px)] flex-col items-center rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
-          <span class="text-sm font-semibold text-white">Buscadores</span>
-          <span class="mt-1 text-xs text-gray-500">Busca reversa de imagens</span>
+    <!-- Differentials Section -->
+    <section class="border-t border-gray-800 bg-gray-900/50 py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">O que torna a Kubex diferente</h2>
+          <p class="mt-4 text-lg text-gray-400">Tecnologia avançada combinada em uma única plataforma brasileira.</p>
         </div>
-        <div class="flex w-[calc(50%-8px)] flex-col items-center rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
-          <span class="text-sm font-semibold text-white">Telegram</span>
-          <span class="mt-1 text-xs text-gray-500">Grupos e canais</span>
-        </div>
-        <div class="flex w-[calc(50%-8px)] flex-col items-center rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
-          <span class="text-sm font-semibold text-white">Discord</span>
-          <span class="mt-1 text-xs text-gray-500">Servidores públicos</span>
-        </div>
-        <div class="flex w-[calc(50%-8px)] flex-col items-center rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
-          <span class="text-sm font-semibold text-white">Instagram</span>
-          <span class="mt-1 text-xs text-gray-500">Perfis e descoberta com IA</span>
-        </div>
-        <div class="flex w-[calc(50%-8px)] flex-col items-center rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
-          <span class="text-sm font-semibold text-white">Reddit</span>
-          <span class="mt-1 text-xs text-gray-500">Comunidades e posts</span>
-        </div>
-        <div class="flex w-[calc(50%-8px)] flex-col items-center rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
-          <span class="text-sm font-semibold text-white">Twitter/X</span>
-          <span class="mt-1 text-xs text-gray-500">Posts e perfis</span>
-        </div>
-        <div class="flex w-[calc(50%-8px)] flex-col items-center rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
-          <span class="text-sm font-semibold text-white">Fóruns</span>
-          <span class="mt-1 text-xs text-gray-500">Comunidades e discussões</span>
-        </div>
-        <div class="flex w-[calc(50%-8px)] flex-col items-center rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
-          <span class="text-sm font-semibold text-white">Sites de Imagens</span>
-          <span class="mt-1 text-xs text-gray-500">Hospedagem de fotos</span>
-        </div>
-        <div class="flex w-[calc(50%-8px)] flex-col items-center rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
-          <span class="text-sm font-semibold text-white">Sites de Vídeos</span>
-          <span class="mt-1 text-xs text-gray-500">Hospedagem de vídeos</span>
-        </div>
-        <div class="flex w-[calc(50%-8px)] flex-col items-center rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
-          <span class="text-sm font-semibold text-white">Sites Adultos</span>
-          <span class="mt-1 text-xs text-gray-500">Plataformas de conteúdo</span>
-        </div>
-        <div class="flex w-[calc(50%-8px)] flex-col items-center rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
-          <span class="text-sm font-semibold text-white">Plataformas de Criadores</span>
-          <span class="mt-1 text-xs text-gray-500">Detecção de perfis falsos</span>
-        </div>
-        <div class="flex w-[calc(50%-8px)] flex-col items-center rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
-          <span class="text-sm font-semibold text-white">Dark Web</span>
-          <span class="mt-1 text-xs text-gray-500">Internet oculta</span>
-        </div>
-        <div class="flex w-[calc(50%-8px)] flex-col items-center rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
-          <span class="text-sm font-semibold text-white">Sites Web</span>
-          <span class="mt-1 text-xs text-gray-500">Rastreamento automático</span>
+        <div class="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-xl border border-gray-800 bg-gray-800/30 p-6 transition-all hover:border-gray-700 hover:bg-gray-800/60">
+            <div class="mb-4 inline-flex rounded-lg bg-blue-600/10 p-3 text-blue-400">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
+            </div>
+            <h3 class="text-base font-semibold text-white">Busca por imagem avançada</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">IA que encontra cópias mesmo recortadas, editadas ou com filtros.</p>
+          </div>
+          <div class="rounded-xl border border-gray-800 bg-gray-800/30 p-6 transition-all hover:border-gray-700 hover:bg-gray-800/60">
+            <div class="mb-4 inline-flex rounded-lg bg-purple-600/10 p-3 text-purple-400">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+            </div>
+            <h3 class="text-base font-semibold text-white">Reconhecimento facial</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Identifica seu rosto em fotos e vídeos espalhados pela internet.</p>
+          </div>
+          <div class="rounded-xl border border-gray-800 bg-gray-800/30 p-6 transition-all hover:border-gray-700 hover:bg-gray-800/60">
+            <div class="mb-4 inline-flex rounded-lg bg-cyan-600/10 p-3 text-cyan-400">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" /></svg>
+            </div>
+            <h3 class="text-base font-semibold text-white">Monitoramento de Telegram</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Varredura automática de grupos e canais piratas.</p>
+          </div>
+          <div class="rounded-xl border border-gray-800 bg-gray-800/30 p-6 transition-all hover:border-gray-700 hover:bg-gray-800/60">
+            <div class="mb-4 inline-flex rounded-lg bg-red-600/10 p-3 text-red-400">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>
+            </div>
+            <h3 class="text-base font-semibold text-white">Varredura da dark web</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Investiga fóruns e sites ocultos onde conteúdo pirata circula.</p>
+          </div>
+          <div class="rounded-xl border border-gray-800 bg-gray-800/30 p-6 transition-all hover:border-gray-700 hover:bg-gray-800/60">
+            <div class="mb-4 inline-flex rounded-lg bg-rose-600/10 p-3 text-rose-400">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" /></svg>
+            </div>
+            <h3 class="text-base font-semibold text-white">Detecção de conteúdo vazado</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Identifica se seu conteúdo pago está sendo distribuído em canais e sites ilegais.</p>
+          </div>
+          <div class="rounded-xl border border-gray-800 bg-gray-800/30 p-6 transition-all hover:border-gray-700 hover:bg-gray-800/60">
+            <div class="mb-4 inline-flex rounded-lg bg-amber-600/10 p-3 text-amber-400">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg>
+            </div>
+            <h3 class="text-base font-semibold text-white">Takedown automatizado</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Envie pedidos de remoção com um clique, baseados na lei brasileira e internacional.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- How it Works Section -->
-  <section class="border-t border-gray-800 bg-gray-900/50 py-20 sm:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Como funciona
-        </h2>
-        <p class="mt-4 text-lg text-gray-400">
-          Proteção digital em 3 passos simples.
-        </p>
-      </div>
-
-      <div class="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-12">
-        <!-- Step 01 -->
-        <div class="relative text-center">
-          <div class="absolute left-1/2 top-8 hidden h-0.5 w-[calc(100%+3rem)] bg-gradient-to-r from-blue-600/40 to-transparent sm:block"></div>
-          <div class="relative mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-blue-600/30 bg-blue-600/10">
-            <span class="text-xl font-bold text-blue-400">01</span>
-          </div>
-          <h3 class="text-lg font-semibold text-white">Cadastre seu conteúdo</h3>
-          <p class="mt-2 text-sm leading-relaxed text-gray-400">Faça upload das suas imagens, vídeos ou insira seus dados de marca. Nossa IA cria uma identidade digital única para cada conteúdo protegido.</p>
+    <!-- Features Section -->
+    <section id="funcionalidades" class="border-t border-gray-800 py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Tudo o que você precisa para se proteger</h2>
+          <p class="mt-4 text-lg text-gray-400">
+            Busca por imagem, reconhecimento facial, monitoramento de redes sociais,
+            rastreamento de sites e dark web — tudo em uma única plataforma.
+          </p>
         </div>
-
-        <!-- Step 02 -->
-        <div class="relative text-center">
-          <div class="absolute left-1/2 top-8 hidden h-0.5 w-[calc(100%+3rem)] bg-gradient-to-r from-blue-600/40 to-transparent sm:block"></div>
-          <div class="relative mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-blue-600/30 bg-blue-600/10">
-            <span class="text-xl font-bold text-blue-400">02</span>
+        <div class="mx-auto mt-16 flex max-w-6xl flex-wrap justify-center gap-6">
+          <!-- Busca por Imagem com IA -->
+          <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+            <div class="mb-4 inline-flex rounded-lg bg-blue-600/10 p-3 text-blue-400">
+              <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white">Busca por Imagem com IA</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Envie uma foto e nossa IA encontra cópias em toda a internet — mesmo que tenham sido recortadas, editadas ou com filtros aplicados.</p>
           </div>
-          <h3 class="text-lg font-semibold text-white">Monitoramento automático 24/7</h3>
-          <p class="mt-2 text-sm leading-relaxed text-gray-400">Nossa tecnologia varre continuamente a internet, redes sociais e dark web em busca de cópias e uso não autorizado.</p>
-        </div>
-
-        <!-- Step 03 -->
-        <div class="relative text-center">
-          <div class="relative mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-blue-600/30 bg-blue-600/10">
-            <span class="text-xl font-bold text-blue-400">03</span>
+          <!-- Reconhecimento Facial -->
+          <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+            <div class="mb-4 inline-flex rounded-lg bg-purple-600/10 p-3 text-purple-400">
+              <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white">Reconhecimento Facial</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Descubra se alguém está usando seu rosto sem permissão. Nossa IA identifica seu rosto em fotos e vídeos espalhados pela internet.</p>
           </div>
-          <h3 class="text-lg font-semibold text-white">Remoção com um clique</h3>
-          <p class="mt-2 text-sm leading-relaxed text-gray-400">Receba alertas em tempo real e envie pedidos de remoção automaticamente para as plataformas infratoras.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Free Tool CTA Section -->
-  <section class="border-t border-gray-800 py-20 sm:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Experimente grátis agora
-        </h2>
-        <p class="mt-4 text-lg text-gray-400">
-          Verifique se seu e-mail foi exposto em vazamentos de dados conhecidos.
-          Sem cadastro, sem custo — resultado imediato.
-        </p>
-        <div class="mt-8">
-          <a href="#planos" class="inline-block rounded-lg bg-blue-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-500 hover:shadow-blue-500/30">
-            Verificar vazamento
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing Section -->
-  <section id="planos" class="border-t border-gray-800 bg-gray-900/50 py-20 sm:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Planos para todos os tamanhos
-        </h2>
-        <p class="mt-4 text-lg text-gray-400">
-          Escolha o plano ideal para a sua necessidade de proteção digital.
-        </p>
-      </div>
-
-      <div class="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-
-        <!-- Gratuito -->
-        <div class="relative rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700">
-          <div class="mb-5">
-            <h3 class="text-lg font-semibold text-white">Gratuito</h3>
-            <p class="mt-1 text-sm text-gray-400">Para começar a proteger seu conteúdo</p>
+          <!-- Monitoramento de Redes Sociais -->
+          <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+            <div class="mb-4 inline-flex rounded-lg bg-cyan-600/10 p-3 text-cyan-400">
+              <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" /></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white">Monitoramento de Redes Sociais</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Monitoramos as principais redes sociais e apps de mensagens automaticamente. Encontramos canais piratas, perfis falsos e quem compartilha seu conteúdo sem autorização.</p>
           </div>
-          <div class="mb-6">
-            <span class="text-4xl font-bold text-white">R$ 0</span>
-            <span class="text-gray-400">/mês</span>
+          <!-- Rastreamento de Sites -->
+          <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+            <div class="mb-4 inline-flex rounded-lg bg-green-600/10 p-3 text-green-400">
+              <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" /></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white">Rastreamento de Sites</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Nosso sistema varre automaticamente sites suspeitos, busca pelo seu nome ou marca e descobre novos sites de pirataria antes que se espalhem.</p>
           </div>
-          <ul class="mb-8 space-y-3">
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              3 buscas por imagem/mês
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Busca nos principais buscadores
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Comparação inteligente de imagens
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Verificação de vazamento de dados
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Relatório de atividades
-            </li>
-          </ul>
-          <a href="#planos" class="block w-full rounded-lg border border-gray-700 px-4 py-2.5 text-center text-sm font-semibold text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800 hover:text-white">
-            Começar grátis
-          </a>
-        </div>
-
-        <!-- Básico -->
-        <div class="relative rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700">
-          <div class="mb-5">
-            <h3 class="text-lg font-semibold text-white">Básico</h3>
-            <p class="mt-1 text-sm text-gray-400">Para criadores que precisam de proteção ativa</p>
+          <!-- Proteção de Vídeo -->
+          <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+            <div class="mb-4 inline-flex rounded-lg bg-rose-600/10 p-3 text-rose-400">
+              <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" /></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white">Proteção de Vídeo</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Detecta quando alguém republica seus vídeos ou usa trechos deles sem permissão — mesmo que editem, cortem ou adicionem efeitos.</p>
           </div>
-          <div class="mb-6">
-            <span class="text-4xl font-bold text-white">R$ 29</span>
-            <span class="text-gray-400">/mês</span>
+          <!-- Proteção de Marca D'Água -->
+          <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+            <div class="mb-4 inline-flex rounded-lg bg-indigo-600/10 p-3 text-indigo-400">
+              <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0 1 19.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 0 0 4.5 10.5a7.464 7.464 0 0 1-1.15 3.993m1.989 3.559A11.209 11.209 0 0 0 8.25 10.5a3.75 3.75 0 1 1 7.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 0 1-3.6 9.75m6.633-4.596a18.666 18.666 0 0 1-2.485 5.33" /></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white">Proteção de Marca D'Água</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Descubra se alguém removeu ou alterou sua marca d'água. Comparamos suas imagens originais com as cópias encontradas.</p>
           </div>
-          <ul class="mb-8 space-y-3">
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              30 buscas por mês
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Busca completa por imagem
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Rastreamento automático de sites
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Monitoramento por nome e marca
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Monitoramento de menções na web
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Alertas de pirataria por e-mail
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Histórico completo de buscas
-            </li>
-          </ul>
-          <a href="#planos" class="block w-full rounded-lg border border-gray-700 px-4 py-2.5 text-center text-sm font-semibold text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800 hover:text-white">
-            Assinar Básico
-          </a>
-        </div>
-
-        <!-- Pro (highlighted) -->
-        <div class="relative rounded-xl border border-blue-500 bg-gray-800 p-6 shadow-lg shadow-blue-600/10 transition-all">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-            <span class="rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">Mais popular</span>
+          <!-- Monitoramento Dark Web -->
+          <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+            <div class="mb-4 inline-flex rounded-lg bg-red-600/10 p-3 text-red-400">
+              <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white">Monitoramento Dark Web</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Investigamos a parte oculta da internet onde conteúdo pirata costuma circular. Detectamos seu material em fóruns e sites escondidos.</p>
           </div>
-          <div class="mb-5">
-            <h3 class="text-lg font-semibold text-white">Pro</h3>
-            <p class="mt-1 text-sm text-gray-400">Para criadores profissionais</p>
+          <!-- Remoção Automática -->
+          <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+            <div class="mb-4 inline-flex rounded-lg bg-amber-600/10 p-3 text-amber-400">
+              <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white">Remoção Automática</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Encontrou pirataria? Com um clique, enviamos pedidos de remoção baseados na lei brasileira e internacional direto para as plataformas infratoras.</p>
           </div>
-          <div class="mb-6">
-            <span class="text-4xl font-bold text-white">R$ 79</span>
-            <span class="text-gray-400">/mês</span>
+          <!-- Monitoramento de Menções -->
+          <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+            <div class="mb-4 inline-flex rounded-lg bg-teal-600/10 p-3 text-teal-400">
+              <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" /></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white">Monitoramento de Menções</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Saiba sempre que seu nome ou marca aparecer na internet. Monitoramos blogs, notícias e sites automaticamente para você.</p>
           </div>
-          <ul class="mb-8 space-y-3">
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Buscas ilimitadas
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Reconhecimento facial com IA
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Busca inteligente por semelhança
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Proteção de vídeo
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Proteção de marca d'água
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Monitoramento de redes sociais
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Descoberta de perfis falsos
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Monitoramento da dark web
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Descoberta automática de fontes piratas
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Remoção automática de conteúdo
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Alertas em tempo real
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              7 dias grátis para testar
-            </li>
-          </ul>
-          <a href="#planos" class="block w-full rounded-lg bg-blue-600 px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-blue-500">
-            Testar grátis por 7 dias
-          </a>
-        </div>
-
-        <!-- Premium -->
-        <div class="relative rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700">
-          <div class="mb-5">
-            <h3 class="text-lg font-semibold text-white">Premium</h3>
-            <p class="mt-1 text-sm text-gray-400">Proteção máxima com prioridade total</p>
+          <!-- Alertas Instantâneos -->
+          <div class="group w-full rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700 hover:bg-gray-800 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+            <div class="mb-4 inline-flex rounded-lg bg-emerald-600/10 p-3 text-emerald-400">
+              <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" /></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white">Alertas Instantâneos</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Receba avisos no momento em que encontramos algo suspeito. Você decide o que fazer direto do seu painel, sem perder tempo.</p>
           </div>
-          <div class="mb-6">
-            <span class="text-4xl font-bold text-white">R$ 199</span>
-            <span class="text-gray-400">/mês</span>
-          </div>
-          <ul class="mb-8 space-y-3">
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Tudo do Pro
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Prioridade no processamento
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Remoção com acompanhamento avançado
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Suporte prioritário
-            </li>
-            <li class="flex items-start gap-2 text-sm text-gray-300">
-              <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-              Relatórios avançados
-            </li>
-          </ul>
-          <a href="#planos" class="block w-full rounded-lg border border-gray-700 px-4 py-2.5 text-center text-sm font-semibold text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800 hover:text-white">
-            Assinar Premium
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Final CTA Section -->
-  <section class="border-t border-gray-800">
-    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Pronto para proteger seu conteúdo?
-        </h2>
-        <p class="mt-4 text-lg text-gray-400">
-          Junte-se a criadores brasileiros que já protegem seus direitos
-          digitais com a Kubex — proteção completa em uma única plataforma.
-        </p>
-        <div class="mt-8">
-          <a href="#planos" class="inline-block rounded-lg bg-blue-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-500 hover:shadow-blue-500/30">
-            Criar conta gratuita
-          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Platforms Section -->
+    <section class="border-t border-gray-800 bg-gray-900/50 py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Onde monitoramos</h2>
+          <p class="mt-4 text-lg text-gray-400">Cobertura completa nas plataformas onde pirataria acontece no Brasil e no mundo.</p>
+        </div>
+        <div class="mx-auto mt-12 flex max-w-4xl flex-wrap justify-center gap-4 lg:gap-6">
+          <!-- Google & Buscadores -->
+          <div class="flex w-[calc(50%-8px)] flex-col items-center gap-2 rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
+            <div class="text-gray-400">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1Z" />
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23Z" />
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62Z" />
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53Z" />
+              </svg>
+            </div>
+            <span class="text-sm font-semibold text-white">Google & Buscadores</span>
+            <span class="text-xs text-gray-500">Busca reversa de imagens</span>
+          </div>
+          <!-- Telegram -->
+          <div class="flex w-[calc(50%-8px)] flex-col items-center gap-2 rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
+            <div class="text-gray-400">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0h-.056Zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635Z" />
+              </svg>
+            </div>
+            <span class="text-sm font-semibold text-white">Telegram</span>
+            <span class="text-xs text-gray-500">Grupos e canais</span>
+          </div>
+          <!-- Discord -->
+          <div class="flex w-[calc(50%-8px)] flex-col items-center gap-2 rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
+            <div class="text-gray-400">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03ZM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418Zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418Z" />
+              </svg>
+            </div>
+            <span class="text-sm font-semibold text-white">Discord</span>
+            <span class="text-xs text-gray-500">Servidores públicos</span>
+          </div>
+          <!-- Instagram -->
+          <div class="flex w-[calc(50%-8px)] flex-col items-center gap-2 rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
+            <div class="text-gray-400">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0Zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03Zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324ZM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4Zm7.846-10.405a1.441 1.441 0 1 1-2.882 0 1.441 1.441 0 0 1 2.882 0Z" />
+              </svg>
+            </div>
+            <span class="text-sm font-semibold text-white">Instagram</span>
+            <span class="text-xs text-gray-500">Perfis e descoberta com IA</span>
+          </div>
+          <!-- Reddit -->
+          <div class="flex w-[calc(50%-8px)] flex-col items-center gap-2 rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
+            <div class="text-gray-400">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 6.628 5.373 12 12 12s12-5.372 12-12c0-6.627-5.373-12-12-12Zm6.066 13.967c.079.347.12.706.12 1.076 0 3.494-4.072 6.328-9.093 6.328s-9.093-2.834-9.093-6.328c0-.37.042-.729.12-1.076a1.816 1.816 0 0 1-.73-1.462c0-1.005.814-1.82 1.82-1.82.487 0 .93.197 1.252.515 1.233-.89 2.94-1.466 4.84-1.537l.907-4.27a.342.342 0 0 1 .408-.255l3.016.636c.217-.456.68-.77 1.214-.77a1.364 1.364 0 1 1 0 2.727 1.364 1.364 0 0 1-1.332-1.08l-2.69-.567-.804 3.787c1.869.084 3.546.664 4.76 1.548.322-.316.764-.511 1.249-.511 1.006 0 1.82.815 1.82 1.82 0 .577-.27 1.091-.69 1.425h.006Zm-11.81 1.453a1.364 1.364 0 1 0 2.727 0 1.364 1.364 0 0 0-2.727 0Zm7.327 3.478c-.09 0-.166-.034-.222-.09-.842.842-2.106 1.248-3.362 1.248-1.256 0-2.52-.406-3.362-1.248a.313.313 0 0 1 .444-.444c.723.723 1.854 1.078 2.918 1.078 1.064 0 2.195-.355 2.918-1.078a.313.313 0 1 1 .444.444c-.056.056-.133.09-.222.09h.444Zm-.3-2.114a1.364 1.364 0 1 0 0-2.727 1.364 1.364 0 0 0 0 2.727Z" />
+              </svg>
+            </div>
+            <span class="text-sm font-semibold text-white">Reddit</span>
+            <span class="text-xs text-gray-500">Comunidades e posts</span>
+          </div>
+          <!-- Twitter / X -->
+          <div class="flex w-[calc(50%-8px)] flex-col items-center gap-2 rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
+            <div class="text-gray-400">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
+              </svg>
+            </div>
+            <span class="text-sm font-semibold text-white">Twitter / X</span>
+            <span class="text-xs text-gray-500">Posts e perfis</span>
+          </div>
+          <!-- Fóruns -->
+          <div class="flex w-[calc(50%-8px)] flex-col items-center gap-2 rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
+            <div class="text-gray-400">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" /></svg>
+            </div>
+            <span class="text-sm font-semibold text-white">Fóruns</span>
+            <span class="text-xs text-gray-500">Comunidades e discussões</span>
+          </div>
+          <!-- Sites de Imagens -->
+          <div class="flex w-[calc(50%-8px)] flex-col items-center gap-2 rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
+            <div class="text-gray-400">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" /></svg>
+            </div>
+            <span class="text-sm font-semibold text-white">Sites de Imagens</span>
+            <span class="text-xs text-gray-500">Hospedagem de fotos</span>
+          </div>
+          <!-- Sites de Vídeos -->
+          <div class="flex w-[calc(50%-8px)] flex-col items-center gap-2 rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
+            <div class="text-gray-400">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" /></svg>
+            </div>
+            <span class="text-sm font-semibold text-white">Sites de Vídeos</span>
+            <span class="text-xs text-gray-500">Hospedagem de vídeos</span>
+          </div>
+          <!-- Sites Adultos -->
+          <div class="flex w-[calc(50%-8px)] flex-col items-center gap-2 rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
+            <div class="text-gray-400">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" /></svg>
+            </div>
+            <span class="text-sm font-semibold text-white">Sites Adultos</span>
+            <span class="text-xs text-gray-500">Plataformas de conteúdo</span>
+          </div>
+          <!-- Plataformas de Criadores -->
+          <div class="flex w-[calc(50%-8px)] flex-col items-center gap-2 rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
+            <div class="text-gray-400">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" /></svg>
+            </div>
+            <span class="text-sm font-semibold text-white">Plataformas de Criadores</span>
+            <span class="text-xs text-gray-500">Detecção de perfis falsos</span>
+          </div>
+          <!-- Dark Web -->
+          <div class="flex w-[calc(50%-8px)] flex-col items-center gap-2 rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
+            <div class="text-gray-400">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286Zm0 13.036h.008v.008H12v-.008Z" /></svg>
+            </div>
+            <span class="text-sm font-semibold text-white">Dark Web</span>
+            <span class="text-xs text-gray-500">Internet oculta</span>
+          </div>
+          <!-- Sites Web -->
+          <div class="flex w-[calc(50%-8px)] flex-col items-center gap-2 rounded-xl border border-gray-800 bg-gray-800/30 px-4 py-5 text-center transition-all hover:border-gray-700 hover:bg-gray-800/60 sm:w-[calc(33.333%-11px)] md:w-[calc(20%-13px)]">
+            <div class="text-gray-400">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" /></svg>
+            </div>
+            <span class="text-sm font-semibold text-white">Sites Web</span>
+            <span class="text-xs text-gray-500">Rastreamento automático</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section class="border-t border-gray-800 py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Como funciona</h2>
+          <p class="mt-4 text-lg text-gray-400">Proteção digital em 4 passos simples.</p>
+        </div>
+        <div class="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
+          <div class="relative text-center">
+            <div class="absolute left-1/2 top-8 hidden h-0.5 w-[calc(100%+1.5rem)] bg-gradient-to-r from-blue-600/40 to-transparent lg:block"></div>
+            <div class="relative mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-blue-600/30 bg-blue-600/10 text-blue-400">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" /></svg>
+            </div>
+            <div class="mb-1 text-xs font-semibold uppercase tracking-wider text-blue-500">Passo 01</div>
+            <h3 class="text-lg font-semibold text-white">Envie seu conteúdo</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Faça upload de imagens, vídeos ou insira seus dados de marca. Nossa IA cria uma identidade digital única para cada conteúdo.</p>
+          </div>
+          <div class="relative text-center">
+            <div class="absolute left-1/2 top-8 hidden h-0.5 w-[calc(100%+1.5rem)] bg-gradient-to-r from-blue-600/40 to-transparent lg:block"></div>
+            <div class="relative mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-blue-600/30 bg-blue-600/10 text-blue-400">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
+            </div>
+            <div class="mb-1 text-xs font-semibold uppercase tracking-wider text-blue-500">Passo 02</div>
+            <h3 class="text-lg font-semibold text-white">A Kubex busca cópias</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Nossa tecnologia varre a internet, redes sociais e dark web automaticamente em busca de cópias e uso não autorizado.</p>
+          </div>
+          <div class="relative text-center">
+            <div class="absolute left-1/2 top-8 hidden h-0.5 w-[calc(100%+1.5rem)] bg-gradient-to-r from-blue-600/40 to-transparent lg:block"></div>
+            <div class="relative mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-blue-600/30 bg-blue-600/10 text-blue-400">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>
+            </div>
+            <div class="mb-1 text-xs font-semibold uppercase tracking-wider text-blue-500">Passo 03</div>
+            <h3 class="text-lg font-semibold text-white">Detectamos onde está</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Você recebe alertas em tempo real com detalhes de onde seu conteúdo foi encontrado — plataforma, link e evidências.</p>
+          </div>
+          <div class="relative text-center">
+            <div class="relative mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-blue-600/30 bg-blue-600/10 text-blue-400">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg>
+            </div>
+            <div class="mb-1 text-xs font-semibold uppercase tracking-wider text-blue-500">Passo 04</div>
+            <h3 class="text-lg font-semibold text-white">Remova automaticamente</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">Com um clique, enviamos pedidos de remoção baseados na lei brasileira e internacional direto para as plataformas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Free Tool CTA Section -->
+    <section class="border-t border-gray-800 bg-gray-900/50 py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Experimente grátis agora</h2>
+          <p class="mt-4 text-lg text-gray-400">
+            Verifique se seu e-mail foi exposto em vazamentos de dados conhecidos.
+            Sem cadastro, sem custo — resultado imediato.
+          </p>
+          <div class="mt-8">
+            <a href="/ferramentas/verificar-vazamento" class="inline-block rounded-lg bg-blue-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-500 hover:shadow-blue-500/30">
+              Verificar vazamento
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="planos" class="border-t border-gray-800 py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Planos para todos os tamanhos</h2>
+          <p class="mt-4 text-lg text-gray-400">Escolha o plano ideal para a sua necessidade de proteção digital.</p>
+        </div>
+        <div class="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
+          <!-- Gratuito -->
+          <div class="relative flex flex-col rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700">
+            <div class="mb-5">
+              <h3 class="text-lg font-semibold text-white">Gratuito</h3>
+              <p class="mt-1 min-h-[2.5rem] text-sm text-gray-400">Para começar a proteger seu conteúdo</p>
+            </div>
+            <div class="mb-2">
+              <span class="text-4xl font-bold text-white">R$ 0</span>
+              <span class="text-gray-400">/mês</span>
+            </div>
+            <a href="/register" class="mb-6 mt-4 block w-full rounded-lg border border-gray-700 px-4 py-2.5 text-center text-sm font-semibold text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800 hover:text-white">Começar grátis</a>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>3 buscas por imagem/mês</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Busca nos principais buscadores</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Comparação inteligente de imagens</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Verificação de vazamento de dados</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Relatório de atividades</li>
+            </ul>
+          </div>
+          <!-- Fundador -->
+          <div class="relative flex flex-col rounded-xl border border-amber-500 bg-amber-950/20 p-6 shadow-lg shadow-amber-500/10 transition-all">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span class="rounded-full bg-amber-600 px-3 py-1 text-xs font-semibold text-white">Exclusivo</span>
+            </div>
+            <div class="mb-5">
+              <h3 class="text-lg font-semibold text-amber-400">Fundador</h3>
+              <p class="mt-1 min-h-[2.5rem] text-sm text-gray-400">Preço congelado para sempre para os primeiros apoiadores</p>
+            </div>
+            <div class="mb-2">
+              <span class="text-4xl font-bold text-white">R$ 39</span>
+              <span class="text-gray-400">/mês</span>
+            </div>
+            <p class="mb-4 text-xs font-medium text-amber-500">Preço congelado para sempre</p>
+            <p class="mb-4 text-xs font-semibold text-amber-400/80">Apenas 50 vagas</p>
+            <a href="/register" class="mb-6 block w-full rounded-lg bg-amber-600 px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-amber-700">Garantir vaga de Fundador</a>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Preço congelado para sempre</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>100 buscas por mês</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Todos os motores de detecção</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento contínuo (12h)</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Alertas em tempo real</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>50 takedowns por mês</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Proteção de vídeo e watermark</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento de redes sociais</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Dark web e descoberta de fontes</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Badge exclusiva de Fundador</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Acesso antecipado a novos recursos</li>
+            </ul>
+          </div>
+          <!-- Básico -->
+          <div class="relative flex flex-col rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700">
+            <div class="mb-5">
+              <h3 class="text-lg font-semibold text-white">Básico</h3>
+              <p class="mt-1 min-h-[2.5rem] text-sm text-gray-400">Para criadores que precisam de proteção ativa</p>
+            </div>
+            <div class="mb-2">
+              <span class="text-4xl font-bold text-white">R$ 29</span>
+              <span class="text-gray-400">/mês</span>
+            </div>
+            <a href="/register" class="mb-6 mt-4 block w-full rounded-lg border border-gray-700 px-4 py-2.5 text-center text-sm font-semibold text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800 hover:text-white">Assinar Básico</a>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>30 buscas por mês</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Busca completa por imagem</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Rastreamento automático de sites</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento por nome e marca</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento de menções na web</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Alertas de pirataria por e-mail</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Histórico completo de buscas</li>
+            </ul>
+          </div>
+          <!-- Pro -->
+          <div class="relative flex flex-col rounded-xl border border-blue-500 bg-gray-800 p-6 shadow-lg shadow-blue-600/10 transition-all">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span class="rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">Mais popular</span>
+            </div>
+            <div class="mb-5">
+              <h3 class="text-lg font-semibold text-white">Pro</h3>
+              <p class="mt-1 min-h-[2.5rem] text-sm text-gray-400">Para criadores profissionais</p>
+            </div>
+            <div class="mb-2">
+              <span class="text-4xl font-bold text-white">R$ 79</span>
+              <span class="text-gray-400">/mês</span>
+            </div>
+            <a href="/register" class="mb-6 mt-4 block w-full rounded-lg bg-blue-600 px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-blue-500">Testar grátis por 7 dias</a>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Buscas ilimitadas</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Reconhecimento facial com IA</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Busca inteligente por semelhança</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Proteção de vídeo</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Proteção de marca d'água</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento de redes sociais</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Descoberta de perfis falsos</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Monitoramento da dark web</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Descoberta automática de fontes piratas</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Remoção automática de conteúdo</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Alertas em tempo real</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>7 dias grátis para testar</li>
+            </ul>
+          </div>
+          <!-- Premium -->
+          <div class="relative flex flex-col rounded-xl border border-gray-800 bg-gray-800/50 p-6 transition-all hover:border-gray-700">
+            <div class="mb-5">
+              <h3 class="text-lg font-semibold text-white">Premium</h3>
+              <p class="mt-1 min-h-[2.5rem] text-sm text-gray-400">Proteção máxima com prioridade total</p>
+            </div>
+            <div class="mb-2">
+              <span class="text-4xl font-bold text-white">R$ 199</span>
+              <span class="text-gray-400">/mês</span>
+            </div>
+            <a href="/register" class="mb-6 mt-4 block w-full rounded-lg border border-gray-700 px-4 py-2.5 text-center text-sm font-semibold text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800 hover:text-white">Assinar Premium</a>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Tudo do Pro</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Prioridade no processamento</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Remoção com acompanhamento avançado</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Suporte prioritário</li>
+              <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>Relatórios avançados</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="border-t border-gray-800">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Não espere seu conteúdo vazar<br class="hidden sm:block" /> para agir
+          </h2>
+          <p class="mt-4 text-lg text-gray-400">
+            Descubra quem está usando seu conteúdo sem permissão. Junte-se aos criadores brasileiros que já protegem seus direitos digitais com a Kubex.
+          </p>
+          <div class="mt-8">
+            <a href="/register" class="inline-block rounded-lg bg-blue-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-500 hover:shadow-blue-500/30">
+              Criar conta gratuita
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- Footer -->
-  <footer class="border-t border-gray-800 bg-gray-950">
-    <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
-        <div class="flex items-center gap-2">
-          <div class="flex h-6 w-6 items-center justify-center rounded bg-blue-600">
-            <span class="text-xs font-bold text-white">K</span>
-          </div>
-          <span class="text-sm text-gray-400">
-            &copy; 2026 Kubex. Todos os direitos reservados.
-          </span>
-        </div>
-        <div class="flex items-center gap-6">
-          <a href="#" class="text-sm text-gray-400 transition-colors hover:text-white">Termos de Uso</a>
-          <a href="#" class="text-sm text-gray-400 transition-colors hover:text-white">Política de Privacidade</a>
-        </div>
+  <footer class="border-t border-gray-800 bg-gray-950 py-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center text-sm text-gray-500">
+        &copy; 2026 Kubex. Todos os direitos reservados.
       </div>
     </div>
   </footer>
