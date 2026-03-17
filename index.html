@@ -115,49 +115,51 @@
                 <div class="mt-1 text-xl font-bold text-green-400 sm:text-2xl">51</div>
               </div>
             </div>
-            <div class="mt-6 rounded-lg border border-gray-800 bg-gray-800/30">
-              <div class="border-b border-gray-800 px-4 py-3">
-                <span class="text-sm font-semibold text-white">Resultados recentes</span>
-              </div>
-              <div class="divide-y divide-gray-800/50">
-                <div class="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-                  <div class="flex items-center gap-3 min-w-0">
-                    <span class="text-xs font-medium text-gray-400 w-20 flex-shrink-0">Telegram</span>
-                    <span class="text-sm text-gray-300 truncate">Canal pirata detectado</span>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <div class="h-1.5 w-1.5 rounded-full bg-amber-400"></div>
-                    <span class="text-xs font-medium text-amber-400">Remoção enviada</span>
-                  </div>
+            <div class="mt-6 rounded-lg border border-gray-800 bg-gray-800/30 overflow-x-auto" style="scrollbar-width:thin;">
+              <div class="min-w-[480px]">
+                <div class="border-b border-gray-800 px-4 py-3">
+                  <span class="text-sm font-semibold text-white">Resultados recentes</span>
                 </div>
-                <div class="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-                  <div class="flex items-center gap-3 min-w-0">
-                    <span class="text-xs font-medium text-gray-400 w-20 flex-shrink-0">Reddit</span>
-                    <span class="text-sm text-gray-300 truncate">Post com conteúdo não autorizado</span>
+                <div class="divide-y divide-gray-800/50">
+                  <div class="flex items-center justify-between px-4 py-3">
+                    <div class="flex items-center gap-3">
+                      <span class="text-xs font-medium text-gray-400 w-20 flex-shrink-0">Telegram</span>
+                      <span class="text-sm text-gray-300 whitespace-nowrap">Canal pirata detectado</span>
+                    </div>
+                    <div class="flex items-center gap-2 flex-shrink-0">
+                      <div class="h-1.5 w-1.5 rounded-full bg-amber-400"></div>
+                      <span class="text-xs font-medium text-amber-400 whitespace-nowrap">Remoção enviada</span>
+                    </div>
                   </div>
-                  <div class="flex items-center gap-2">
-                    <div class="h-1.5 w-1.5 rounded-full bg-green-400"></div>
-                    <span class="text-xs font-medium text-green-400">Removido</span>
+                  <div class="flex items-center justify-between px-4 py-3">
+                    <div class="flex items-center gap-3">
+                      <span class="text-xs font-medium text-gray-400 w-20 flex-shrink-0">Reddit</span>
+                      <span class="text-sm text-gray-300 whitespace-nowrap">Post com conteúdo não autorizado</span>
+                    </div>
+                    <div class="flex items-center gap-2 flex-shrink-0">
+                      <div class="h-1.5 w-1.5 rounded-full bg-green-400"></div>
+                      <span class="text-xs font-medium text-green-400 whitespace-nowrap">Removido</span>
+                    </div>
                   </div>
-                </div>
-                <div class="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-                  <div class="flex items-center gap-3 min-w-0">
-                    <span class="text-xs font-medium text-gray-400 w-20 flex-shrink-0">Site pirata</span>
-                    <span class="text-sm text-gray-300 truncate">site-ilegal.com/uploads/...</span>
+                  <div class="flex items-center justify-between px-4 py-3">
+                    <div class="flex items-center gap-3">
+                      <span class="text-xs font-medium text-gray-400 w-20 flex-shrink-0">Site pirata</span>
+                      <span class="text-sm text-gray-300 whitespace-nowrap">site-ilegal.com/uploads/...</span>
+                    </div>
+                    <div class="flex items-center gap-2 flex-shrink-0">
+                      <div class="h-1.5 w-1.5 rounded-full bg-amber-400"></div>
+                      <span class="text-xs font-medium text-amber-400 whitespace-nowrap">Takedown enviado</span>
+                    </div>
                   </div>
-                  <div class="flex items-center gap-2">
-                    <div class="h-1.5 w-1.5 rounded-full bg-amber-400"></div>
-                    <span class="text-xs font-medium text-amber-400">Takedown enviado</span>
-                  </div>
-                </div>
-                <div class="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-                  <div class="flex items-center gap-3 min-w-0">
-                    <span class="text-xs font-medium text-gray-400 w-20 flex-shrink-0">Instagram</span>
-                    <span class="text-sm text-gray-300 truncate">Perfil falso identificado</span>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <div class="h-1.5 w-1.5 rounded-full bg-blue-400"></div>
-                    <span class="text-xs font-medium text-blue-400">Reportado</span>
+                  <div class="flex items-center justify-between px-4 py-3">
+                    <div class="flex items-center gap-3">
+                      <span class="text-xs font-medium text-gray-400 w-20 flex-shrink-0">Instagram</span>
+                      <span class="text-sm text-gray-300 whitespace-nowrap">Perfil falso identificado</span>
+                    </div>
+                    <div class="flex items-center gap-2 flex-shrink-0">
+                      <div class="h-1.5 w-1.5 rounded-full bg-blue-400"></div>
+                      <span class="text-xs font-medium text-blue-400 whitespace-nowrap">Reportado</span>
+                    </div>
                   </div>
                 </div>
               </div>
